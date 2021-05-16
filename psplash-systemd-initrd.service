@@ -1,0 +1,16 @@
+[Unit]
+Description=Start psplash-systemd progress communication helper
+DefaultDependencies=no
+After=psplash-start.service
+Requires=psplash-start.service
+RequiresMountsFor=/run
+
+[Service]
+ExecStart=/usr/bin/psplash-systemd
+RemainAfterExit=yes
+NotifyAccess=all
+Environment="PSPLASH_BASE=0"
+Environment="PSPLASH_WEIGHT=35"
+
+[Install]
+WantedBy=basic.target

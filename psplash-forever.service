@@ -1,0 +1,15 @@
+[Unit]
+Description=Start psplash infinite progress helper
+DefaultDependencies=no
+After=psplash-start.service
+Requires=psplash-start.service
+RequiresMountsFor=/run
+
+[Service]
+ExecStart=@/usr/bin/psplash-infinite-porgress @psplash-infinite-porgress
+RemainAfterExit=yes
+NotifyAccess=all
+
+[Install]
+WantedBy=WantedBy=basic.target
+
