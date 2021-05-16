@@ -18,3 +18,11 @@ autom4te.cache/
 psplash
 psplash-write
 stamp-h1
+
+**/parts
+**/stage
+snap/plugins/__pycache__
+snap/.snapcraft
+**/prime
+**/*.snap
+**/*.tar*
