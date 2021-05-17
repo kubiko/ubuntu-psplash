@@ -21,6 +21,20 @@ AS_IF([test "x$with_systemd" = "xyes"], [
 
 AM_CONDITIONAL([HAVE_SYSTEMD], [test "x$with_systemd" = "xyes"])
 
+AC_ARG_WITH([infinite-progress], AS_HELP_STRING([--with-infinite-progress], [Build with infinite progress support]))
+
+AM_CONDITIONAL([HAVE_INFINITE_PROGRESS], [test "x$with_infinite_progress" = "xyes"])
+
+AC_ARG_VAR([PROGRESS_INCREMENTS], [Increments of the infinit progress in %(default is '20')])
+AS_IF([test x$PROGRESS_INCREMENTS != x],[
+    EXTRA_GCC_FLAGS="$EXTRA_GCC_FLAGS -DPROGRESS_INCREMENTS=$PROGRESS_INCREMENTS"
+])
+
+AC_ARG_VAR([PROGRESS_REFRESH], [Infinite Progress Refresh rate in milliseconds %(default is '500')])
+AS_IF([test x$PROGRESS_REFRESH != x],[
+    EXTRA_GCC_FLAGS="$EXTRA_GCC_FLAGS -DPROGRESS_REFRESH=$PROGRESS_REFRESH"
+])
+
 AC_SUBST(GCC_FLAGS)
 
 AC_ARG_WITH([font],

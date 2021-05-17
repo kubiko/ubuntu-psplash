@@ -19,6 +19,11 @@ psplash_systemd_LDFLAGS= $(SYSTEMD_LIBS)
 psplash_systemd_SOURCES = psplash-systemd.c psplash.h
 endif
 
+if HAVE_INFINITE_PROGRESS
+bin_PROGRAMS +=psplash-infinite-progress
+psplash_infinite_progress_SOURCES = psplash-infinite-progress.c psplash.h
+endif
+
 EXTRA_DIST = make-image-header.sh
  
 MAINTAINERCLEANFILES = aclocal.m4 compile config.guess config.sub configure depcomp install-sh ltmain.sh Makefile.in missing
